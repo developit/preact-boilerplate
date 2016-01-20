@@ -3,16 +3,20 @@
 > :guitar: Ready-to-rock [Preact] starter project, powered by [webpack].
 >
 > :rocket: If you're starting a new project using [Preact], you've come to the right place.
-> Below is a step-by-step guide that takes you straight from downloading this boilerplate to production.
+Below is a step-by-step guide that takes you straight from downloading this boilerplate to production.
 >
-> - [Installation](#installation)
-> - [Development Workflow](#development-workflow)
-> - [Structure](#structure)
-> - [Handling URLS](#handling-urls)
-> - [License](#license)
+> **[:boom: View Demo :boom:](https://preact-boilerplate.surge.sh)**
 
 
-**[:boom: View Demo :boom:](https://preact-boilerplate.surge.sh)**
+---
+
+
+# Quick-Start Guide
+
+- [Installation](#installation)
+- [Development Workflow](#development-workflow)
+- [Structure](#structure)
+- [Handling URLS](#handling-urls)
 
 
 ## Installation
