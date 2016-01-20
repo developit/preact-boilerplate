@@ -4,7 +4,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
 const ENV = process.env.NODE_ENV || 'development';
-const MAP = ENV==='production' ? '' : '?sourceMap';
 
 module.exports = {
 	entry: './src/index.js',
@@ -48,15 +47,15 @@ module.exports = {
 				test: /\.(less|css)$/,
 				include: /src\/components\//,
 				loader: ExtractTextPlugin.extract([
-					`css${MAP||'?'}&modules&importLoaders=1&localIdentName=[local]${process.env.CSS_MODULES_IDENT || '_[hash:base64:5]'}`,
+					`css?sourceMap&modules&importLoaders=1&localIdentName=[local]${process.env.CSS_MODULES_IDENT || '_[hash:base64:5]'}`,
 					'postcss',
-					`less${MAP}`
+					'less?sourceMap'
 				].join('!'))
 			},
 			{
 				test: /\.(less|css)$/,
 				exclude: /src\/components\//,
-				loader: ExtractTextPlugin.extract(`css${MAP}!postcss!less${MAP}`)
+				loader: ExtractTextPlugin.extract('css?sourceMap!postcss!less?sourceMap')
 			},
 			{
 				test: /\.json$/,
