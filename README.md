@@ -24,7 +24,7 @@ Below is a step-by-step guide that takes you straight from downloading this boil
 **1. Clone this repo:**
 
 ```sh
-git clone git@github.com:developit/preact-boilerplate.git my-app
+git clone --depth 1 git@github.com:developit/preact-boilerplate.git my-app
 cd my-app
 ```
 
