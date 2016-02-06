@@ -32,10 +32,10 @@ cd my-app
 **2. Make it your own:**
 
 ```sh
-npm init
+rm -rf .git && git init && npm init
 ```
 
-> :information_source: This sets up your NPM project.
+> :information_source: This re-initializes the repo and sets up your NPM project.
 
 
 **3. Install the dependencies:**
