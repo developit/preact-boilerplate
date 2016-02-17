@@ -1,6 +1,6 @@
 {
   "name": "preact-boilerplate",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --inline --progress",
