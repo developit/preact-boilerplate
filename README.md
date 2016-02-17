@@ -16,6 +16,7 @@ Below is a step-by-step guide that takes you straight from downloading this boil
 - [Installation](#installation)
 - [Development Workflow](#development-workflow)
 - [Structure](#structure)
+- [CSS Modules](#css-modules)
 - [Handling URLS](#handling-urls)
 
 
@@ -90,6 +91,36 @@ class Link extends Component {
 <Link to="/">Home</Link>
 ```
 
+
+---
+
+
+## CSS Modules
+
+This project is set up to support [CSS Modules](https://github.com/css-modules/css-modules).  By default, styles in `src/style` are **global** (not using CSS Modules) to make global declarations, imports and helpers easy to declare.  Styles in `src/components` are loaded as CSS Modules via [Webpack's css-loader](https://github.com/webpack/css-loader#css-modules).  Modular CSS namespaces class names, and when imported into JavaScript returns a mapping of canonical (unmodified) CSS classes to their local (namespaced/suffixed) counterparts.
+
+When imported, this LESS/CSS:
+
+```css
+.redText { color:red; }
+.blueText { color:blue; }
+```
+
+... returns the following map:
+
+```js
+import styles from './style.css';
+console.log(styles);
+// {
+//   redText: 'redText_local_9gt72',
+//   blueText: 'blueText_local_9gt72'
+// }
+```
+
+Note that the suffix for local classNames is generated based on an md5 hash of the file. Changing the file changes the hash.
+
+
+---
 
 
 ## Handling URLS
