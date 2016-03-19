@@ -41,7 +41,7 @@
     "less": "^2.6.1",
     "less-loader": "^2.2.2",
     "ncp": "^2.0.0",
-    "npm-run-all": "^1.5.3",
+    "npm-run-all": "^1.6.0",
     "postcss-loader": "^0.8.2",
     "raw-loader": "^0.5.1",
     "source-map-loader": "^0.1.5",
