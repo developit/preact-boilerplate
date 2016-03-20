@@ -3,7 +3,10 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
+/*global process,module,__dirname*/
+
 const ENV = process.env.NODE_ENV || 'development';
+
 const CSS_MAPS = ENV!=='production';
 
 module.exports = {
@@ -86,11 +89,11 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new ExtractTextPlugin('style.css', {
 			allChunks: true,
-			disabled: ENV!=='production'
+			disable: ENV!=='production'
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify(ENV)
+			'process.env': JSON.stringify({ NODE_ENV: ENV })
 		}),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
