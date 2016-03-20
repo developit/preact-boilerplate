@@ -1,5 +1,8 @@
 # Preact Boilerplate / Starter Kit
 
+[![Build Status](https://travis-ci.org/developit/preact-boilerplate.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate)
+[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/developit/preact)
+
 > :guitar: Ready-to-rock [Preact] starter project, powered by [webpack].
 >
 > :rocket: If you're starting a new project using [Preact], you've come to the right place.
