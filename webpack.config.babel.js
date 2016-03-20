@@ -4,12 +4,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
 const ENV = process.env.NODE_ENV || 'development';
+const CSS_MAPS = ENV!=='production';
 
 module.exports = {
-	entry: './src/index.js',
+	context: `${__dirname}/src`,
+	entry: './index.js',
 
 	output: {
-		path: './build',
+		path: `${__dirname}/build`,
 		publicPath: '/',
 		filename: 'bundle.js'
 	},
@@ -46,16 +48,20 @@ module.exports = {
 			{
 				test: /\.(less|css)$/,
 				include: /src\/components\//,
-				loader: ExtractTextPlugin.extract([
-					`css?sourceMap&modules&importLoaders=1&localIdentName=[local]${process.env.CSS_MODULES_IDENT || '_[hash:base64:5]'}`,
+				loader: ExtractTextPlugin.extract('style', [
+					`css?sourceMap=${CSS_MAPS}&modules&importLoaders=1&localIdentName=[local]${process.env.CSS_MODULES_IDENT || '_[hash:base64:5]'}`,
 					'postcss',
-					'less?sourceMap'
+					`less?sourceMap=${CSS_MAPS}`
 				].join('!'))
 			},
 			{
 				test: /\.(less|css)$/,
 				exclude: /src\/components\//,
-				loader: ExtractTextPlugin.extract('css?sourceMap!postcss!less?sourceMap')
+				loader: ExtractTextPlugin.extract('style', [
+					`css?sourceMap=${CSS_MAPS}`,
+					`postcss`,
+					`less?sourceMap=${CSS_MAPS}`
+				].join('!'))
 			},
 			{
 				test: /\.json$/,
@@ -66,8 +72,8 @@ module.exports = {
 				loader: 'raw'
 			},
 			{
-				test: /\.(svg|woff|ttf|eot)(\?.*)?$/i,
-				loader: 'file-loader?name=assets/fonts/[name]_[hash:base64:5].[ext]'
+				test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
+				loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
 			}
 		]
 	},
@@ -78,7 +84,10 @@ module.exports = {
 
 	plugins: ([
 		new webpack.NoErrorsPlugin(),
-		new ExtractTextPlugin('style.css', { allChunks: true }),
+		new ExtractTextPlugin('style.css', {
+			allChunks: true,
+			disabled: ENV!=='production'
+		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(ENV)
