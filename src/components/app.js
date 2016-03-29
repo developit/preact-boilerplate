@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import { bind } from 'decko';
 
 import Header from './header';
 import Home from './home';
@@ -12,10 +11,9 @@ export default class App extends Component {
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
 	 *	@param {string} event.url	The newly routed URL
 	 */
-	@bind
-	handleRoute(e) {
+	handleRoute = e => {
 		this.currentUrl = e.url;
-	}
+	};
 
 	render() {
 		return (

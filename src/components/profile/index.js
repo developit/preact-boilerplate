@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import { Link } from 'preact-router';
 import style from './style';
 
 export default class Profile extends Component {
