@@ -7,19 +7,6 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="format-detection" content="telephone=no">
-		{% if (o.htmlWebpackPlugin.files.favicon) { %}
-		<link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
-		{% } %}
-		{% if (o.htmlWebpackPlugin.files.icon) { %}
-		<link rel="icon" sizes="192x192" href="{%=o.htmlWebpackPlugin.files.icon%}">
-		{% } %}
-		{% for (var css in o.htmlWebpackPlugin.files.css) { %}
-		<link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
-		{% } %}
 	</head>
-	<body>
-		{% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
-		<script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
-		{% } %}
-	</body>
+	<body></body>
 </html>
