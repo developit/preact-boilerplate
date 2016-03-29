@@ -3,8 +3,6 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
-/*global process,module,__dirname*/
-
 const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
@@ -51,7 +49,7 @@ module.exports = {
 			{
 				test: /\.(less|css)$/,
 				include: /src\/components\//,
-				loader: ExtractTextPlugin.extract('style', [
+				loader: ExtractTextPlugin.extract('style?singleton', [
 					`css?sourceMap=${CSS_MAPS}&modules&importLoaders=1&localIdentName=[local]${process.env.CSS_MODULES_IDENT || '_[hash:base64:5]'}`,
 					'postcss',
 					`less?sourceMap=${CSS_MAPS}`
@@ -60,7 +58,7 @@ module.exports = {
 			{
 				test: /\.(less|css)$/,
 				exclude: /src\/components\//,
-				loader: ExtractTextPlugin.extract('style', [
+				loader: ExtractTextPlugin.extract('style?singleton', [
 					`css?sourceMap=${CSS_MAPS}`,
 					`postcss`,
 					`less?sourceMap=${CSS_MAPS}`
@@ -71,7 +69,7 @@ module.exports = {
 				loader: 'json'
 			},
 			{
-				test: /\.(xml|html|txt)$/,
+				test: /\.(xml|html|txt|md)$/,
 				loader: 'raw'
 			},
 			{
@@ -96,21 +94,25 @@ module.exports = {
 			'process.env': JSON.stringify({ NODE_ENV: ENV })
 		}),
 		new HtmlWebpackPlugin({
-			template: 'src/index.html',
+			template: './index.html',
 			minify: { collapseWhitespace: true }
 		})
 	]).concat(ENV==='production' ? [
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			mangle: true,
-			compress: true,
-			comments: false
-		})
+		new webpack.optimize.OccurenceOrderPlugin()
 	] : []),
 
 	stats: { colors: true },
 
-	devtool: ENV==='production' ? 'source-map' : 'inline-source-map',
+	node: {
+		global: true,
+		process: false,
+		Buffer: false,
+		__filename: false,
+		__dirname: false,
+		setImmediate: false
+	},
+
+	devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
 
 	devServer: {
 		port: process.env.PORT || 8080,
