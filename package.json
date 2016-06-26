@@ -52,7 +52,7 @@
     "less-loader": "^2.2.3",
     "mocha": "^2.4.5",
     "ncp": "^2.0.0",
-    "phantomjs-prebuilt": "^2.1.6",
+    "phantomjs-prebuilt": "^2.1.7",
     "postcss-loader": "^0.9.1",
     "raw-loader": "^0.5.1",
     "sinon": "^1.17.3",
