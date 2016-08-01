@@ -2,17 +2,18 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import path from 'path';
 
 const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
 
 module.exports = {
-	context: `${__dirname}/src`,
+	context: path.resolve(__dirname, "src"),
 	entry: './index.js',
 
 	output: {
-		path: `${__dirname}/build`,
+		path: path.resolve(__dirname, "build"),
 		publicPath: '/',
 		filename: 'bundle.js'
 	},
@@ -20,13 +21,13 @@ module.exports = {
 	resolve: {
 		extensions: ['', '.jsx', '.js', '.json', '.less'],
 		modulesDirectories: [
-			`${__dirname}/src/lib`,
-			`${__dirname}/node_modules`,
+			path.resolve(__dirname, "src/lib"),
+			path.resolve(__dirname, "node_modules"),
 			'node_modules'
 		],
 		alias: {
-			components: `${__dirname}/src/components`,		// used for tests
-			style: `${__dirname}/src/style`,
+			components: path.resolve(__dirname, "src/components"),		// used for tests
+			style: path.resolve(__dirname, "src/style"),
 			'react': 'preact-compat',
 			'react-dom': 'preact-compat'
 		}
