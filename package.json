@@ -50,7 +50,7 @@
     "karma-webpack": "^1.7.0",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
-    "mocha": "^2.4.5",
+    "mocha": "^3.0.0",
     "ncp": "^2.0.0",
     "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.7",
