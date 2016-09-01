@@ -4,10 +4,10 @@
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
-    "start": "superstatic build -p ${PORT:-8080} --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
+    "start": "superstatic build -p 8080 --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
-    "prebuild": "mkdir -p build && ncp src/assets build/assets",
+    "prebuild": "mkdirp build && ncp src/assets build/assets",
     "test": "npm run -s lint && npm run -s test:karma",
     "test:karma": "karma start test/karma.conf.js --single-run",
     "lint": "eslint {src,test}"
@@ -51,6 +51,7 @@
     "karma-webpack": "^1.8.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "mkdirp": "^0.5.1",
     "mocha": "^3.0.0",
     "ncp": "^2.0.0",
     "path": "^0.12.7",
