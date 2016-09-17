@@ -63,29 +63,31 @@ npm run dev
 
 > This is a full web server nicely suited to your project. Any time you make changes within the `src` directory, it will rebuild and even refresh your browser.
 
-**5. Start local static server with `superstatic`:**
-
-```sh
-npm run start
-```
-
-**6. Testing with `mocha`, `karma`, `chai`, `sinon` via `phantomjs`:**
+**5. Testing with `mocha`, `karma`, `chai`, `sinon` via `phantomjs`:**
 
 ```sh
 npm test
 ```
 
-**7. Generate a production build in `./build`:**
+**6. Generate a production build in `./build`:**
 
 ```sh
 npm run build
 ```
 
-You can now deploy the contents of the `build` directory to production!
-
-> **Example:** deploy to [surge.sh](https://surge.sh):
+> You can now deploy the contents of the `build` directory to production!
 >
-> `surge ./build -d my-app.surge.sh`
+> **[Surge.sh](https://surge.sh) Example:** `surge ./build -d my-app.surge.sh`
+
+
+**5. Start local production server with `superstatic`:**
+
+```sh
+npm start
+```
+
+> This is to simulate a production (CDN) server with gzip. It just serves up the contents of `./build`.
+
 
 
 ---
