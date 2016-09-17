@@ -58,13 +58,24 @@ npm install
 **4. Start a live-reload development server:**
 
 ```sh
-PORT=8080 npm run dev
+npm run dev
 ```
 
 > This is a full web server nicely suited to your project. Any time you make changes within the `src` directory, it will rebuild and even refresh your browser.
 
+**5. Start local static server with `superstatic`:**
 
-**5. Generate a production build in `./build`:**
+```sh
+npm run start
+```
+
+**6. Testing with `mocha`, `karma`, `chai`, `sinon` via `phantomjs`:**
+
+```sh
+npm test
+```
+
+**7. Generate a production build in `./build`:**
 
 ```sh
 npm run build
