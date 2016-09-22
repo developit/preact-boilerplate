@@ -122,13 +122,12 @@ module.exports = {
 		publicPath: '/',
 		contentBase: './src',
 		historyApiFallback: true,
-		proxy: [
+		proxy: {
 			// OPTIONAL: proxy configuration:
-			// {
-			// 	path: '/optional-prefix/**',
-			// 	target: 'http://target-host.com',
-			// 	rewrite: req => { req.url = req.url.replace(/^\/[^\/]+\//, ''); }   // strip first path segment
+			// '/optional-prefix/**': { // path pattern to rewrite
+			//	 target: 'http://target-host.com',
+			//	 pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
 			// }
-		]
+		}
 	}
 };
