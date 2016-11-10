@@ -68,7 +68,7 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
-    "preact": "^6.0.0",
+    "preact": "^7.0.0",
     "preact-compat": "^3.0.0",
     "preact-router": "^2.0.0",
     "proptypes": "^0.14.3"
