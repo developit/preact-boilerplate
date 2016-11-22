@@ -54,12 +54,12 @@ module.exports = {
 			{
 				// Transform our own .(less|css) files with PostCSS and CSS-modules
 				test: /\.(less|css)$/,
-				include: [/src\\components/],
+				include: [path.resolve(__dirname, "src/components")],
 				loader: ExtractTextPlugin.extract('style?singleton', `css-loader?localIdentName=${localIdentName}&modules&importLoaders=1&sourceMap=${CSS_MAPS}!postcss-loader!less-loader?sourceMap=${CSS_MAPS}`)
 			},
 			{				
 				test: /\.(less|css)$/,
-				exclude: [/src\\components/],
+				exclude: [path.resolve(__dirname, "src/components")],
 				loader: ExtractTextPlugin.extract('style?singleton', [
 					`css?sourceMap=${CSS_MAPS}`,
 					`postcss`,
