@@ -18,18 +18,5 @@
 	<link rel="icon" type="image/png" href="/assets/icons/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="./manifest.json">
 </head>
-<body>
-
-	<script type="text/javascript">
-	if ("serviceWorker" in navigator) {
-		navigator.serviceWorker.register('./serviceWorker.js', { scope: "./" })
-		.then(function (registration) {
-			console.log('Service worker is registered!');
-		})
-		.catch(function (error) {
-			console.error('Service worker failed ', error);
-		});
-	}
-	</script>
-</body>
+<body></body>
 </html>
