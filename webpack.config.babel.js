@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
 import path from 'path';
 
 const ENV = process.env.NODE_ENV || 'development';
@@ -26,7 +28,7 @@ module.exports = {
 			'node_modules'
 		],
 		alias: {
-			components: path.resolve(__dirname, "src/components"),		// used for tests
+			components: path.resolve(__dirname, "src/components"),    // used for tests
 			style: path.resolve(__dirname, "src/style"),
 			'react': 'preact-compat',
 			'react-dom': 'preact-compat'
@@ -97,6 +99,15 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './index.html',
 			minify: { collapseWhitespace: true }
+		}),
+		new CopyWebpackPlugin([
+			{ from: './manifest.json', to: './' },
+			{ from: './favicon.ico', to: './' }
+		]),
+		new OfflinePlugin({
+			relativePaths: false,
+			AppCache: false,
+			publicPath: '/'
 		})
 	]).concat(ENV==='production' ? [
 		new webpack.optimize.OccurenceOrderPlugin()
@@ -117,16 +128,17 @@ module.exports = {
 
 	devServer: {
 		port: process.env.PORT || 8080,
-		host: '0.0.0.0',
+		host: 'localhost',
 		colors: true,
 		publicPath: '/',
 		contentBase: './src',
 		historyApiFallback: true,
+		open: true,
 		proxy: {
 			// OPTIONAL: proxy configuration:
 			// '/optional-prefix/**': { // path pattern to rewrite
-			//	 target: 'http://target-host.com',
-			//	 pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
+			//   target: 'http://target-host.com',
+			//   pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
 			// }
 		}
 	}
