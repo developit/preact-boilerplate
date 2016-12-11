@@ -49,6 +49,11 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'babel'
 			},
+      {
+        test: /\.jsx?$/,
+        loader: 'isparta',
+        include: /src/
+      },
 			{
 				test: /\.(less|css)$/,
 				include: /src\/components\//,
