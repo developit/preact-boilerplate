@@ -92,7 +92,6 @@ module.exports = {
 			allChunks: true,
 			disable: ENV!=='production'
 		}),
-		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(ENV)
 		}),
@@ -110,7 +109,6 @@ module.exports = {
 			publicPath: '/'
 		})
 	]).concat(ENV==='production' ? [
-		new webpack.optimize.OccurenceOrderPlugin()
 	] : []),
 
 	stats: { colors: true },
