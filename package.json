@@ -4,7 +4,7 @@
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
-    "start": "superstatic build -p 8080 --host 0.0.0.0 --gzip -c '{\"rewrites\": [{\"source\":\"**\",\"destination\":\"index.html\"}],\"headers\":[{\"source\":\"**\",\"headers\":[{\"key\":\"Cache-Control\",\"value\":\"max-age=86400\"}]}]}'",
+    "start": "serve build -s -c 1",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
@@ -63,7 +63,6 @@
     "sinon-chai": "^2.8.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
-    "superstatic": "^4.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"
@@ -72,6 +71,7 @@
     "preact": "^6.0.0",
     "preact-compat": "^3.0.0",
     "preact-router": "^2.0.0",
-    "proptypes": "^0.14.3"
+    "proptypes": "^0.14.3",
+    "serve": "^2.0.0"
   }
 }
