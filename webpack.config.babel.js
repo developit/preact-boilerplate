@@ -102,13 +102,16 @@ module.exports = {
 		new CopyWebpackPlugin([
 			{ from: './manifest.json', to: './' },
 			{ from: './favicon.ico', to: './' }
-		]),
+		])
+	]).concat(ENV==='production' ? [
 		new OfflinePlugin({
 			relativePaths: false,
 			AppCache: false,
+			ServiceWorker: {
+				events: true
+			},
 			publicPath: '/'
 		})
-	]).concat(ENV==='production' ? [
 	] : []),
 
 	stats: { colors: true },
