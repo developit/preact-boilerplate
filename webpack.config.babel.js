@@ -11,10 +11,6 @@ const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
 
-const localIdentName = ENV === 'production' ?
-	`[local]_${process.env.CSS_MODULES_IDENT || '[hash:base64:5]'}` :
-	'[path]___[name]___[local]___[sha512:hash:base64:5]';
-
 module.exports = {
 	context: path.resolve(__dirname, "src"),
 	entry: './index.js',
@@ -57,12 +53,16 @@ module.exports = {
 			{
 				// Transform our own .(less|css) files with PostCSS and CSS-modules
 				test: /\.(less|css)$/,
-				include: [path.resolve(__dirname, "src/components")],
-				loader: ExtractTextPlugin.extract('style?singleton', `css-loader?localIdentName=${localIdentName}&modules&importLoaders=1&sourceMap=${CSS_MAPS}!postcss-loader!less-loader?sourceMap=${CSS_MAPS}`)
+				include: [path.resolve(__dirname, 'src/components')],
+				loader: ExtractTextPlugin.extract('style?singleton', [
+					`css-loader?modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
+					'postcss-loader',
+					`less-loader?sourceMap=${CSS_MAPS}`
+				].join('!'))
 			},
-			{				
+			{
 				test: /\.(less|css)$/,
-				exclude: [path.resolve(__dirname, "src/components")],
+				exclude: [path.resolve(__dirname, 'src/components')],
 				loader: ExtractTextPlugin.extract('style?singleton', [
 					`css?sourceMap=${CSS_MAPS}`,
 					`postcss`,
