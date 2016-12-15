@@ -59,6 +59,7 @@
     "phantomjs-prebuilt": "^2.1.12",
     "postcss-loader": "^1.2.1",
     "raw-loader": "^0.5.1",
+    "replace-bundle-webpack-plugin": "^1.0.0",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
     "source-map-loader": "^0.1.5",
