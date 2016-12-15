@@ -117,7 +117,7 @@ module.exports = {
 			'process.env.NODE_ENV': JSON.stringify(ENV)
 		}),
 		new HtmlWebpackPlugin({
-			template: './index.html',
+			template: './index.ejs',
 			minify: { collapseWhitespace: true }
 		}),
 		new ScriptExtHtmlWebpackPlugin({
