@@ -69,6 +69,8 @@ npm run dev
 npm test
 ```
 
+> 🌟 This also instruments the code in `src/` using [isparta](https://github.com/douglasduteil/isparta), giving you pretty code coverage statistics at the end of your tests! If you want to see detailed coverage information, a full HTML report is placed into `coverage/`.
+
 **6. Generate a production build in `./build`:**
 
 ```sh

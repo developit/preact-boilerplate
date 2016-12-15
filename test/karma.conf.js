@@ -20,7 +20,8 @@ module.exports = function(config) {
 				},
 				{
 					type: 'html',
-					dir: 'coverage'
+					dir: 'coverage',
+					subdir: '.'
 				}
 			]
 		},
