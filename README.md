@@ -86,7 +86,7 @@ npm run build
 > [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate)
 
 
-**5. Start local production server with `superstatic`:**
+**5. Start local production server with [serve](https://github.com/zeit/serve):**
 
 ```sh
 npm start
