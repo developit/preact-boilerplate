@@ -94,7 +94,7 @@ module.exports = {
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.DefinePlugin({
-			'process.env': JSON.stringify({ NODE_ENV: ENV })
+			'process.env.NODE_ENV': JSON.stringify(ENV)
 		}),
 		new HtmlWebpackPlugin({
 			template: './index.html',
