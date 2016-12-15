@@ -40,7 +40,7 @@ module.exports = {
 		preLoaders: [
 			{
 				test: /\.jsx?$/,
-				exclude: /src\//,
+				exclude: path.resolve(__dirname, 'src'),
 				loader: 'source-map'
 			}
 		],
@@ -50,11 +50,6 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'babel'
 			},
-      {
-        test: /\.jsx?$/,
-        loader: 'isparta',
-        include: /src/
-      },
 			{
 				// Transform our own .(less|css) files with PostCSS and CSS-modules
 				test: /\.(less|css)$/,
