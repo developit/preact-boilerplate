@@ -6,7 +6,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ReplacePlugin from 'replace-bundle-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
-import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin';
+//import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from "script-ext-html-webpack-plugin";
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -90,24 +90,24 @@ module.exports = {
 	],
 
 	plugins: ([
-		new V8LazyParseWebpackPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			output: {
-				comments: false
-			},
-			compress: {
-				warnings: false,
-				conditionals: true,
-				unused: true,
-				comparisons: true,
-				sequences: true,
-				dead_code: true,
-				evaluate: true,
-				if_return: true,
-				join_vars: true,
-				negate_iife: false
-			}
-		}),
+		//new V8LazyParseWebpackPlugin(),
+		// new webpack.optimize.UglifyJsPlugin({
+		// 	output: {
+		// 		comments: false
+		// 	},
+		// 	compress: {
+		// 		warnings: false,
+		// 		conditionals: true,
+		// 		unused: true,
+		// 		comparisons: true,
+		// 		sequences: true,
+		// 		dead_code: true,
+		// 		evaluate: true,
+		// 		if_return: true,
+		// 		join_vars: true,
+		// 		negate_iife: false
+		// 	}
+		// }),
 		new webpack.NoErrorsPlugin(),
 		new ExtractTextPlugin('style.css', {
 			allChunks: true,
@@ -121,7 +121,7 @@ module.exports = {
 			minify: { collapseWhitespace: true }
 		}),
 		new ScriptExtHtmlWebpackPlugin({
-			defaultAttribute: "async"
+		 	defaultAttribute: "async"
 		}),
 		new CopyWebpackPlugin([
 			{ from: './manifest.json', to: './' },
