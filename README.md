@@ -80,6 +80,10 @@ npm run build
 > You can now deploy the contents of the `build` directory to production!
 >
 > **[Surge.sh](https://surge.sh) Example:** `surge ./build -d my-app.surge.sh`
+> 
+> **[Netlify](https://www.netlify.com/docs/cli/) Example:** `netlify deploy`
+>
+> [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/developit/preact-boilerplate)
 
 
 **5. Start local production server with `superstatic`:**
