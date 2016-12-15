@@ -17,6 +17,7 @@
   "rules": {
     "no-empty": 0,
     "no-console": 0,
+    "no-empty-pattern": 0,
     "no-unused-vars": [0, { "varsIgnorePattern": "^h$" }],
     "no-cond-assign": 1,
     "semi": 2,
