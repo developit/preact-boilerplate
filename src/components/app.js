@@ -5,8 +5,6 @@ import Header from './header';
 import Home from './home';
 import Profile from './profile';
 
-require('offline-plugin/runtime').install();
-
 export default class App extends Component {
 	/** Gets fired when the route changes.
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
