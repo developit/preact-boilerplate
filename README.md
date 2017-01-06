@@ -21,6 +21,7 @@ Below is a step-by-step guide that takes you straight from downloading this boil
 - [Structure](#structure)
 - [CSS Modules](#css-modules)
 - [Handling URLS](#handling-urls)
+- [React Compatibility](#react-compatibility)
 
 
 ## Installation
@@ -165,10 +166,18 @@ Defining what component(s) to load for a given URL is easy and declarative. You 
 ---
 
 
+## React Compatibility
+
+This project includes [preact-compat] alias in as `react` and `react-dom` right out-of-the-box.  This means you can install and use third-party React components, and they will use Preact automatically!  It also means that if you _don't_ install third-party React components, `preact-compat` doesn't get included in your JavaScript bundle - it's free if you don't use it 👍
+
+---
+
+
 ## License
 
 MIT
 
 
-[Preact]: https://developit.github.io/preact
+[Preact]: https://github.com/developit/preact
+[preact-compat]: https://github.com/developit/preact-compat
 [webpack]: https://webpack.github.io
