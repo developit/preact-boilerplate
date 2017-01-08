@@ -100,14 +100,21 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: './index.ejs',
-			minify: { collapseWhitespace: true }
+			minify: { collapseWhitespace: true },
+			filename: '200.html'
+		}),
+		new HtmlWebpackPlugin({
+			template: './200.ejs',
+			minify: { collapseWhitespace: true },
+			filename: '200.html'
 		}),
 		new ScriptExtHtmlWebpackPlugin({
 		 	defaultAttribute: "async"
 		}),
 		new CopyWebpackPlugin([
 			{ from: './manifest.json', to: './' },
-			{ from: './favicon.ico', to: './' }
+			{ from: './favicon.ico', to: './' },
+			{ from: './_redirects', to: './' }
 		])
 	]).concat(ENV==='production' ? [
 		new V8LazyParseWebpackPlugin(),
@@ -128,7 +135,7 @@ module.exports = {
 				negate_iife: false
 			}
 		}),
-		
+
 		// strip out babel-helper invariant checks
 		new ReplacePlugin([{
 			// this is actually the property name https://github.com/kimhou/replace-bundle-webpack-plugin/issues/1
