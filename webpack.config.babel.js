@@ -6,7 +6,8 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ReplacePlugin from 'replace-bundle-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
-
+import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin';
+import ScriptExtHtmlWebpackPlugin from "script-ext-html-webpack-plugin";
 const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
@@ -98,14 +99,36 @@ module.exports = {
 			'process.env.NODE_ENV': JSON.stringify(ENV)
 		}),
 		new HtmlWebpackPlugin({
-			template: './index.html',
+			template: './index.ejs',
 			minify: { collapseWhitespace: true }
+		}),
+		new ScriptExtHtmlWebpackPlugin({
+		 	defaultAttribute: "async"
 		}),
 		new CopyWebpackPlugin([
 			{ from: './manifest.json', to: './' },
 			{ from: './favicon.ico', to: './' }
 		])
 	]).concat(ENV==='production' ? [
+		new V8LazyParseWebpackPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+		 	output: {
+		 		comments: false
+			},
+			compress: {
+				warnings: false,
+				conditionals: true,
+				unused: true,
+				comparisons: true,
+				sequences: true,
+				dead_code: true,
+				evaluate: true,
+				if_return: true,
+				join_vars: true,
+				negate_iife: false
+			}
+		}),
+		
 		// strip out babel-helper invariant checks
 		new ReplacePlugin([{
 			// this is actually the property name https://github.com/kimhou/replace-bundle-webpack-plugin/issues/1
