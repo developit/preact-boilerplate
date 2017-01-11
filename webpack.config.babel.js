@@ -101,7 +101,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './index.ejs',
 			minify: { collapseWhitespace: true },
-			filename: '200.html'
+			filename: 'index.html'
 		}),
 		new HtmlWebpackPlugin({
 			template: './200.ejs',
@@ -109,7 +109,7 @@ module.exports = {
 			filename: '200.html'
 		}),
 		new ScriptExtHtmlWebpackPlugin({
-		 	defaultAttribute: "async"
+			defaultAttribute: "async"
 		}),
 		new CopyWebpackPlugin([
 			{ from: './manifest.json', to: './' },
@@ -119,8 +119,8 @@ module.exports = {
 	]).concat(ENV==='production' ? [
 		new V8LazyParseWebpackPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
-		 	output: {
-		 		comments: false
+			output: {
+				comments: false
 			},
 			compress: {
 				warnings: false,
