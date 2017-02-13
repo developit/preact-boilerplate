@@ -134,7 +134,7 @@ module.exports = {
 		new OfflinePlugin({
 			relativePaths: false,
 			AppCache: false,
-			excludes: ['_redirects']
+			excludes: ['_redirects'],
 			ServiceWorker: {
 				events: true
 			},
