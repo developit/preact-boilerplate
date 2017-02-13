@@ -131,11 +131,10 @@ module.exports = {
 			partten: /throw\s+(new\s+)?[a-zA-Z]+Error\s*\(/g,
 			replacement: () => 'return;('
 		}]),
-
 		new OfflinePlugin({
 			relativePaths: false,
 			AppCache: false,
-      excludes: ['_redirects'],
+			excludes: ['_redirects']
 			ServiceWorker: {
 				events: true
 			},
