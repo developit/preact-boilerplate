@@ -108,8 +108,8 @@ module.exports = {
 	]).concat(ENV==='production' ? [
 		new V8LazyParseWebpackPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
-		 	output: {
-		 		comments: false
+			output: {
+				comments: false
 			},
 			compress: {
 				warnings: false,
@@ -138,6 +138,13 @@ module.exports = {
 			ServiceWorker: {
 				events: true
 			},
+			cacheMaps: [
+				{
+					match: /.*/,
+					to: '/',
+					requestTypes: ['navigate']
+				}
+			],
 			publicPath: '/'
 		})
 	] : []),
