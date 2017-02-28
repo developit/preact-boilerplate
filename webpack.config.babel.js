@@ -41,14 +41,14 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				exclude: path.resolve(__dirname, 'src'),
-				loader: 'source-map'
+				loader: 'source-map-loader'
 			}
 		],
 		loaders: [
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				loader: 'babel'
+				loader: 'babel-loader'
 			},
 			{
 				// Transform our own .(less|css) files with PostCSS and CSS-modules
@@ -56,7 +56,7 @@ module.exports = {
 				include: [path.resolve(__dirname, 'src/components')],
 				loader: ExtractTextPlugin.extract('style?singleton', [
 					`css-loader?modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
-					'postcss-loader',
+					`postcss-loader`,
 					`less-loader?sourceMap=${CSS_MAPS}`
 				].join('!'))
 			},
@@ -64,22 +64,22 @@ module.exports = {
 				test: /\.(less|css)$/,
 				exclude: [path.resolve(__dirname, 'src/components')],
 				loader: ExtractTextPlugin.extract('style?singleton', [
-					`css?sourceMap=${CSS_MAPS}`,
-					`postcss`,
-					`less?sourceMap=${CSS_MAPS}`
+					`css-loader?sourceMap=${CSS_MAPS}`,
+					`postcss-loader`,
+					`less-loader?sourceMap=${CSS_MAPS}`
 				].join('!'))
 			},
 			{
 				test: /\.json$/,
-				loader: 'json'
+				loader: 'json-loader'
 			},
 			{
 				test: /\.(xml|html|txt|md)$/,
-				loader: 'raw'
+				loader: 'raw-loader'
 			},
 			{
 				test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-				loader: ENV==='production' ? 'file?name=[path][name]_[hash:base64:5].[ext]' : 'url'
+				loader: ENV==='production' ? 'file-loader' : 'url-loader'
 			}
 		]
 	},
