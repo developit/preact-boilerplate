@@ -23,7 +23,7 @@ module.exports = {
 
 	resolve: {
 		extensions: ['.jsx', '.js', '.json', '.less'],
-		modulesDirectories: [
+		modules: [
 			path.resolve(__dirname, "src/lib"),
 			path.resolve(__dirname, "node_modules"),
 			'node_modules'
