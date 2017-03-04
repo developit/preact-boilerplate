@@ -37,62 +37,88 @@ module.exports = {
 	},
 
 	module: {
-		preLoaders: [
+		rules: [
 			{
 				test: /\.jsx?$/,
 				exclude: path.resolve(__dirname, 'src'),
-				loader: 'source-map-loader'
-			}
-		],
-		loaders: [
+				enforce: 'pre',
+				use: 'source-map-loader'
+			},
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader'
+				use: 'babel-loader'
 			},
 			{
 				// Transform our own .(less|css) files with PostCSS and CSS-modules
 				test: /\.(less|css)$/,
 				include: [path.resolve(__dirname, 'src/components')],
-				loader: ExtractTextPlugin.extract('style?singleton', [
-					`css-loader?modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
-					`postcss-loader`,
-					`less-loader?sourceMap=${CSS_MAPS}`
-				].join('!'))
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: { modules: true, sourceMap: true, importLoaders: 1 }
+            },
+            {
+              loader: `postcss-loader`,
+              options: {
+                plugins: () => {
+                  autoprefixer({ browsers: [ 'last 2 versions' ] });
+                }
+              }
+            },
+            { 
+              loader: 'less-loader',
+              options: { sourceMap: true }
+            }
+          ]
+        })
 			},
 			{
 				test: /\.(less|css)$/,
 				exclude: [path.resolve(__dirname, 'src/components')],
-				loader: ExtractTextPlugin.extract('style?singleton', [
-					`css-loader?sourceMap=${CSS_MAPS}`,
-					`postcss-loader`,
-					`less-loader?sourceMap=${CSS_MAPS}`
-				].join('!'))
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true, importLoaders: 1 }
+            },
+            {
+              loader: `postcss-loader`,
+              options: {
+                plugins: () => {
+                  autoprefixer({ browsers: [ 'last 2 versions' ] });
+                }
+              }
+            },
+            { 
+              loader: 'less-loader',
+              options: { sourceMap: true }
+            }
+          ]
+        })
 			},
 			{
 				test: /\.json$/,
-				loader: 'json-loader'
+				use: 'json-loader'
 			},
 			{
 				test: /\.(xml|html|txt|md)$/,
-				loader: 'raw-loader'
+				use: 'raw-loader'
 			},
 			{
 				test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-				loader: ENV==='production' ? 'file-loader' : 'url-loader'
+				use: ENV==='production' ? 'file-loader' : 'url-loader'
 			}
 		]
 	},
-
-	postcss: () => [
-		autoprefixer({ browsers: 'last 2 versions' })
-	],
-
 	plugins: ([
-		new webpack.NoErrorsPlugin(),
-		new ExtractTextPlugin('style.css', {
-			allChunks: true,
-			disable: ENV!=='production'
+    new ExtractTextPlugin({
+      filename: 'style.css',
+      allChunks: true,
+      disable: ENV !== 'production'
 		}),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(ENV)
