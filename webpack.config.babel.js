@@ -139,7 +139,6 @@ module.exports = {
 				comments: false
 			},
 			compress: {
-				warnings: false,
 				conditionals: true,
 				unused: true,
 				comparisons: true,
