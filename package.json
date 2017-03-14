@@ -76,7 +76,6 @@
     "sinon-chai": "^2.8.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.0",
-    "undom": "^0.3.3",
     "url-loader": "^0.5.7",
     "v8-lazy-parse-webpack-plugin": "^0.3.0",
     "webpack": "^1.13.2",
