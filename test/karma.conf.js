@@ -1,10 +1,10 @@
 require('babel-register');
-var webpack = require('../webpack.config.babel.js');
-var path = require('path');
+const webpack = require('../webpack.config.babel.js');
+const path = require('path');
 
-webpack.module.loaders.push({
+webpack.module.rules.push({
 	test: /\.jsx?$/,
-	loader: 'isparta',
+	loader: 'isparta-loader',
 	include: path.resolve(__dirname, '../src')
 });
 
@@ -38,7 +38,7 @@ module.exports = function(config) {
 			'**/*.js': ['sourcemap']
 		},
 
-		webpack: webpack,
+		webpack,
 		webpackMiddleware: { noInfo: true }
 	});
 };
