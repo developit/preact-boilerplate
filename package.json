@@ -52,7 +52,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
     "less": "^2.7.1",
-    "less-loader": "^2.2.3",
+    "less-loader": "^4.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.0.0",
     "ncp": "^2.0.0",
