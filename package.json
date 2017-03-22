@@ -65,7 +65,7 @@
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
     "source-map-loader": "^0.2.0",
-    "style-loader": "^0.13.0",
+    "style-loader": "^0.16.0",
     "url-loader": "^0.5.7",
     "v8-lazy-parse-webpack-plugin": "^0.3.0",
     "webpack": "^1.13.2",
