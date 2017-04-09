@@ -72,7 +72,7 @@
     "webpack-dev-server": "^1.15.0"
   },
   "dependencies": {
-    "preact": "^7.1.0",
+    "preact": "^8.1.0",
     "preact-compat": "^3.0.0",
     "preact-router": "^2.0.0",
     "promise-polyfill": "^6.0.2",
