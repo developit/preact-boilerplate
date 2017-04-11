@@ -6,7 +6,6 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ReplacePlugin from 'replace-bundle-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
-import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin';
 const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
@@ -133,7 +132,6 @@ module.exports = {
 			{ from: './favicon.ico', to: './' }
 		])
 	]).concat(ENV==='production' ? [
-		new V8LazyParseWebpackPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			output: {
 				comments: false
