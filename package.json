@@ -74,7 +74,7 @@
   "dependencies": {
     "preact": "^8.1.0",
     "preact-compat": "^3.14.3",
-    "preact-router": "^2.4.4",
+    "preact-router": "^2.4.5",
     "promise-polyfill": "^6.0.2",
     "proptypes": "^0.14.3",
     "serve": "^5.1.2"
