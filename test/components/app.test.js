@@ -1,14 +1,13 @@
-import { h, render, rerender } from 'preact';
+import { h, render } from 'preact';
 import { route } from 'preact-router';
-import App from 'components/app';
-import 'style';
+import { expect } from 'chai';
 
-/*global sinon,expect*/
+import App from '../../src/components/app';
 
 describe('App', () => {
 	let scratch;
 
-	before( () => {
+	beforeAll( () => {
 		scratch = document.createElement('div');
 		(document.body || document.documentElement).appendChild(scratch);
 	});
@@ -17,7 +16,7 @@ describe('App', () => {
 		scratch.innerHTML = '';
 	});
 
-	after( () => {
+	afterAll( () => {
 		scratch.parentNode.removeChild(scratch);
 		scratch = null;
 	});
@@ -30,18 +29,20 @@ describe('App', () => {
 			expect(scratch.innerHTML).to.contain('Home');
 		});
 
-		it('should render /profile', () => {
+		it('should render /profile', async () => {
 			render(<App />, scratch);
 			route('/profile');
-			rerender();
+
+			await sleep(1);
 
 			expect(scratch.innerHTML).to.contain('Profile: me');
 		});
 
-		it('should render /profile/:user', () => {
+		it('should render /profile/:user', async () => {
 			render(<App />, scratch);
 			route('/profile/john');
-			rerender();
+
+			await sleep(1);
 
 			expect(scratch.innerHTML).to.contain('Profile: john');
 		});
