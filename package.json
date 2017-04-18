@@ -10,7 +10,7 @@
     "prebuild": "mkdirp build && ncp src/assets build/assets",
     "test": "npm run -s lint && npm run -s test:jest",
     "test:jest": "jest --coverage",
-    "lint": "eslint {src,test}"
+    "lint": "eslint src test"
   },
   "keywords": [
     "preact",
