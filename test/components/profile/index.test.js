@@ -1,5 +1,4 @@
-/* global jest, describe, it */
-import { h, render } from 'preact'; /* @jsx h */
+import { h, render } from 'preact';
 import { expect } from 'chai';
 import { createClock } from '../../setup';
 
@@ -28,7 +27,7 @@ describe('components/Profile', () => {
 		let component = null;
 		render(<Profile ref={ref => component = ref} user="test"/>, scratch);
 		expect(component.state.time).to.equal(new Date().toLocaleString());
-		
+
 		// pass time for 2 seconds
 		jest.runTimersToTime(2000);
 

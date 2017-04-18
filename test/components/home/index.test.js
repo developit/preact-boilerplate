@@ -1,5 +1,4 @@
-/* global describe, it */
-import { h } from 'preact'; /** @jsx h */
+import { h } from 'preact';
 import { expect } from 'chai';
 
 import Home from '../../../src/components/home';

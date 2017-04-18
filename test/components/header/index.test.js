@@ -1,10 +1,7 @@
-/* global describe, it */
-import { h } from 'preact'; /* @jsx h */
+import { h } from 'preact';
 import { expect } from 'chai';
 
 import Header from '../../../src/components/header';
-
-const normalize = str => str.replace(/\s+/g, ' ');
 
 describe('components/Header', () => {
 
