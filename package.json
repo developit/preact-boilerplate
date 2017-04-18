@@ -8,8 +8,8 @@
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
-    "test": "npm run -s lint && npm run -s test:jest",
-    "test:jest": "jest --coverage",
+    "test": "npm run -s lint && jest --coverage",
+    "test:watch": "npm run -s test -- --watch",
     "lint": "eslint src test"
   },
   "keywords": [
