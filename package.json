@@ -90,7 +90,7 @@
     "preact": "^8.1.0",
     "preact-compat": "^3.13.1",
     "preact-render-to-string": "^3.6.0",
-    "preact-router": "^2.4.1",
+    "preact-router": "^2.5.2",
     "promise-polyfill": "^6.0.2",
     "proptypes": "^0.14.3",
     "serve": "^5.1.4"
