@@ -1,6 +1,5 @@
 import { h, render } from 'preact';
 import { expect } from 'chai';
-import { createClock } from '../../setup';
 
 import Profile from '../../../src/components/profile';
 
