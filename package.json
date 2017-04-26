@@ -91,7 +91,7 @@
     "preact-render-to-string": "^3.6.0",
     "preact-router": "^2.5.1",
     "promise-polyfill": "^6.0.2",
-    "proptypes": "^0.14.3",
+    "proptypes": "^1.0.0",
     "serve": "^5.1.4"
   }
 }
