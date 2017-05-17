@@ -1,7 +1,5 @@
 # Preact Boilerplate / Starter Kit
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/developit/preact-boilerplate.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/developit/preact-boilerplate.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate)
 [![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/developit/preact)
 
