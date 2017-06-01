@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CompressionWebpackPlugin from 'compression-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -162,6 +163,13 @@ module.exports = {
 				cascade: true,
 				drop_console: true
 			}
+		}),
+		new CompressionWebpackPlugin({
+				asset: "[path].gz[query]",
+				algorithm: "gzip",
+				test: /\.(js|html)$/,
+				threshold: 10240,
+				minRatio: 0.8
 		}),
 
 		// strip out babel-helper invariant checks
