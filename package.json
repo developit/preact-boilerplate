@@ -55,6 +55,7 @@
     "babel-register": "^6.24.0",
     "babel-runtime": "^6.11.6",
     "chai": "^3.5.0",
+    "compression-webpack-plugin": "^0.4.0",
     "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.4.1",
     "cross-env": "^4.0.0",
