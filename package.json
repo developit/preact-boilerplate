@@ -83,7 +83,7 @@
     "sinon-chai": "^2.9.0",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.18.1",
-    "url-loader": "^0.5.8",
+    "url-loader": "^0.6.1",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.4"
   },
