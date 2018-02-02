@@ -73,7 +73,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "offline-plugin": "^4.7.0",
-    "postcss-loader": "^2.0.3",
+    "postcss-loader": "^2.1.0",
     "preact-jsx-chai": "^2.2.1",
     "raw-loader": "^0.5.1",
     "regenerator-runtime": "^0.10.3",
