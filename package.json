@@ -60,7 +60,7 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
     "eslint": "^4.1.0",
-    "eslint-plugin-jest": "^20.0.0",
+    "eslint-plugin-jest": "^21.7.1",
     "eslint-plugin-react": "^7.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.1",
