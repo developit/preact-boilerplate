@@ -5,6 +5,7 @@ import autoprefixer from 'autoprefixer';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import path from 'path';
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ENV = process.env.NODE_ENV || 'development';
 
 const CSS_MAPS = ENV!=='production';
@@ -12,6 +13,7 @@ const CSS_MAPS = ENV!=='production';
 module.exports = {
 	context: path.resolve(__dirname, "src"),
 	entry: './index.js',
+	mode: ENV,
 
 	output: {
 		path: path.resolve(__dirname, "build"),
@@ -33,6 +35,43 @@ module.exports = {
 			'react-dom': 'preact-compat'
 		}
 	},
+
+	optimization: {
+		minimizer: [
+			new UglifyJSPlugin({
+				uglifyOptions: {
+					output: {
+						comments: false
+					},
+					compress: {
+						unsafe_comps: true,
+						properties: true,
+						keep_fargs: false,
+						pure_getters: true,
+						collapse_vars: true,
+						unsafe: true,
+						ie8: false,
+						warnings: false,
+						sequences: true,
+						dead_code: true,
+						drop_debugger: true,
+						comparisons: true,
+						conditionals: true,
+						evaluate: true,
+						booleans: true,
+						loops: true,
+						unused: true,
+						hoist_funs: true,
+						if_return: true,
+						join_vars: true,
+						collapse_vars: true,
+						drop_console: true
+					}
+				}
+			}),
+		]
+	},
+
 
 	module: {
 		rules: [
@@ -133,42 +172,14 @@ module.exports = {
 			{ from: './favicon.ico', to: './' }
 		])
 	]).concat(ENV==='production' ? [
-		new webpack.optimize.UglifyJsPlugin({
-			output: {
-				comments: false
-			},
-			compress: {
-				unsafe_comps: true,
-				properties: true,
-				keep_fargs: false,
-				pure_getters: true,
-				collapse_vars: true,
-				unsafe: true,
-				warnings: false,
-				screw_ie8: true,
-				sequences: true,
-				dead_code: true,
-				drop_debugger: true,
-				comparisons: true,
-				conditionals: true,
-				evaluate: true,
-				booleans: true,
-				loops: true,
-				unused: true,
-				hoist_funs: true,
-				if_return: true,
-				join_vars: true,
-				cascade: true,
-				drop_console: true
-			}
-		}),
-
 		new OfflinePlugin({
 			relativePaths: false,
 			AppCache: false,
 			excludes: ['_redirects'],
 			ServiceWorker: {
-				events: true
+				events: true,
+				// Until this is solved https://github.com/NekR/offline-plugin/issues/351
+				minify: false,
 			},
 			cacheMaps: [
 				{
