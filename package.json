@@ -72,7 +72,7 @@
     "less-loader": "^4.0.3",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "offline-plugin": "^4.7.0",
+    "offline-plugin": "^5.0.0",
     "postcss-loader": "^2.0.3",
     "preact-jsx-chai": "^2.2.1",
     "raw-loader": "^0.5.1",
