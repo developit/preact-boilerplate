@@ -64,7 +64,6 @@ module.exports = {
 						hoist_funs: true,
 						if_return: true,
 						join_vars: true,
-						collapse_vars: true,
 						drop_console: true
 					}
 				}
