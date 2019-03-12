@@ -59,13 +59,13 @@ npm run dev
 
 > This is a full web server nicely suited to your project. Any time you make changes within the `src` directory, it will rebuild and even refresh your browser.
 
-**5. Testing with `mocha`, `karma`, `chai`, `sinon` via `phantomjs`:**
+**5. Testing with `jest`, `chai`, and `preact-jsx-chai`:**
 
 ```sh
 npm test
 ```
 
-> 🌟 This also instruments the code in `src/` using [isparta](https://github.com/douglasduteil/isparta), giving you pretty code coverage statistics at the end of your tests! If you want to see detailed coverage information, a full HTML report is placed into `coverage/`.
+> 🌟 This also instruments the code in `src/` usin jest, giving you pretty code coverage statistics at the end of your tests! If you want to see detailed coverage information, a full HTML report is placed into `coverage/`.
 
 **6. Generate a production build in `./build`:**
 
