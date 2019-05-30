@@ -4,7 +4,7 @@
   "description": "Ready-to-go Preact starter project powered by webpack.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
-    "start": "serve build -s -c 1",
+    "start": "sirv build -s -q -e",
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "prebuild": "mkdirp build && ncp src/assets build/assets",
@@ -94,6 +94,6 @@
     "preact-router": "^2.5.1",
     "promise-polyfill": "^7.0.1",
     "proptypes": "^1.0.0",
-    "serve": "^6.0.0"
+    "sirv-cli": "^0.4.2"
   }
 }
