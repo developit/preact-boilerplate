@@ -88,7 +88,7 @@ npm run build
 npm start
 ```
 
-> This is to simulate a production (CDN) server with gzip. It just serves up the contents of `./build`.
+> This is to simulate a production (CDN) server with gzip. It just serves up the contents of `./build` on http://localhost:5000
 
 
 
