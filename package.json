@@ -56,7 +56,7 @@
     "babel-runtime": "^6.11.6",
     "chai": "^4.0.2",
     "copy-webpack-plugin": "^4.0.1",
-    "core-js": "^2.4.1",
+    "core-js": "^3.5.0",
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.0",
     "eslint": "^4.1.0",
