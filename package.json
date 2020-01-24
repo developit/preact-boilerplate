@@ -70,7 +70,7 @@
     "json-loader": "^0.5.4",
     "less": "^3.0.0",
     "less-loader": "^4.0.3",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.0",
     "ncp": "^2.0.0",
     "offline-plugin": "^5.0.0",
     "postcss-loader": "^2.0.3",
