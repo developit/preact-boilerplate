@@ -57,7 +57,7 @@
     "chai": "^4.0.2",
     "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.4.1",
-    "cross-env": "^5.0.1",
+    "cross-env": "^7.0.2",
     "css-loader": "^0.28.0",
     "eslint": "^4.1.0",
     "eslint-plugin-jest": "^21.7.1",
